@@ -1,7 +1,7 @@
 // require("dotenv").config();
 require("dotenv").config({ path: "config/.env" });
 const app = require("./app");
-// const connectDatabase = require("./db/index");
+const connectDatabase = require("./db/index");
 const path = require("path");
 const express = require("express");
 const { default: mongoose } = require("mongoose");
@@ -19,15 +19,15 @@ if (process.env.NODE_ENV !== "PRODUCTION") {
 }
 
 // connect DB
-// connectDatabase();
+connectDatabase();
 
 // Serve Uploads Folder (Recordings)
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 // Create server
-// const server = app.listen(process.env.PORT, () => {
-//     console.log(`Server is running on http://localhost:${process.env.PORT}`);
-// });
+const server = app.listen(process.env.PORT, () => {
+    console.log(`Server is running on http://localhost:${process.env.PORT}`);
+});
 
 // Handle unhandled promise rejections
 process.on("unhandledRejection", (err) => {
