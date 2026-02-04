@@ -16,7 +16,7 @@
     "react-toastify": "^10.0.6"
   },
   "scripts": {
-    "start": "node app.js",
+    "start": "node server.js",
     "dev": "nodemon server.js"
   }
 }
